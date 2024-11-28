@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import "./Sidebar.css";
 import { FaPlus } from "react-icons/fa";
 
@@ -24,9 +24,20 @@ const Sidebar = () => {
     setDisplayClubs(false);
   };
 
-  const projects = ["DevNet", "Epsilon", "OrderUp"];
-  const clubs = ["WebDev", "Hackathon"];
-  const dms = ["Edgar", "Frank", "Kaneki"];
+  interface Subsection {
+    type: string;
+    title: string;
+    id: string;
+  }
+  const data: Subsection[] = [
+    { type: "project", title: "DevNet", id: "dev-net" },
+    { type: "project", title: "Epsilon", id: "epsilon" },
+    { type: "project", title: "OrderUp", id: "order-up" },
+    { type: "club", title: "WebDev", id: "web-dev" },
+    { type: "club", title: "Hackathon", id: "hackathon" },
+    { type: "dm", title: "Edgar", id: "edgar" },
+    { type: "dm", title: "Kaneki", id: "kaneki" },
+  ];
 
   return (
     <div className="flex flex-col gap-2 align-middle w-[20%] h-dvh border p-2 bg-slate-900 text-white">
@@ -35,13 +46,13 @@ const Sidebar = () => {
       </button>
       {displayProjects && (
         <>
-          {projects.map((item, index) => (
-            <button className="bar-subsec">
-              <Link key={index} to="">
-                {item}
-              </Link>
-            </button>
-          ))}{" "}
+          {data
+            .filter((item) => item.type === "project")
+            .map((item, index) => (
+              <button key={item.id} className="bar-subsec">
+                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
+              </button>
+            ))}{" "}
           <button className="bar-subsec">
             <FaPlus />
           </button>
@@ -52,13 +63,13 @@ const Sidebar = () => {
       </button>
       {displayClubs && (
         <>
-          {clubs.map((item, index) => (
-            <button className="bar-subsec">
-              <Link key={index} to="">
-                {item}
-              </Link>
-            </button>
-          ))}{" "}
+          {data
+            .filter((item) => item.type === "club")
+            .map((item, index) => (
+              <button key={item.id} className="bar-subsec">
+                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
+              </button>
+            ))}{" "}
           <button className="bar-subsec">
             <FaPlus />
           </button>
@@ -69,13 +80,13 @@ const Sidebar = () => {
       </button>
       {displayDMs && (
         <>
-          {dms.map((item, index) => (
-            <button className="bar-subsec">
-              <Link key={index} to="">
-                {item}
-              </Link>
-            </button>
-          ))}{" "}
+          {data
+            .filter((item) => item.type === "dm")
+            .map((item, index) => (
+              <button key={item.id} className="bar-subsec">
+                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
+              </button>
+            ))}{" "}
           <button className="bar-subsec">
             <FaPlus />
           </button>
