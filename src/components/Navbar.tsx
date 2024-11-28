@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
@@ -10,6 +9,34 @@ const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  interface SidebarInfo {
+    title: string;
+    path: string;
+    icon: ReactNode;
+    cName: string;
+  }
+
+  const SidebarData: SidebarInfo[] = [
+    {
+      title: "Home",
+      path: "/home",
+      icon: AiIcons.AiFillHome({}),
+      cName: "nav-text",
+    },
+    {
+      title: "Explore",
+      path: "/explore",
+      icon: FaIcons.FaRegCompass({}),
+      cName: "nav-text",
+    },
+    {
+      title: "Profile",
+      path: "/profile",
+      icon: FaIcons.FaRegUserCircle({}),
+      cName: "nav-text",
+    },
+  ];
 
   return (
     <>

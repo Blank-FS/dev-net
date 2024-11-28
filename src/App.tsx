@@ -7,14 +7,14 @@ import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <>
+    <main className="w-full h-full">
       <Navbar />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </>
+    </main>
   );
 }
 

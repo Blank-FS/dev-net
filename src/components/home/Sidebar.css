@@ -1,0 +1,15 @@
+/* Bar section */
+.bar-sec {
+  padding: 1rem;
+  border-width: 1px;
+}
+
+/* Bar subsection */
+.bar-subsec {
+  margin-left: 1rem;
+  border-width: 1px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
