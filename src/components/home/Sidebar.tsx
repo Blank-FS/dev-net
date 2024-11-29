@@ -40,7 +40,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-2 align-middle w-[20%] h-dvh border p-2 bg-slate-900 text-white">
+    <div className="flex flex-col gap-2 align-middle w-[20%] box-border h-dvh border p-2 bg-slate-900 text-white">
       <button className="bar-sec" onClick={toggleProjects}>
         Projects
       </button>
@@ -49,9 +49,13 @@ const Sidebar = () => {
           {data
             .filter((item) => item.type === "project")
             .map((item, index) => (
-              <button key={item.id} className="bar-subsec">
-                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
-              </button>
+              <Link
+                key={item.id}
+                className="bar-subsec"
+                to={`${item.type}/${item.id}`}
+              >
+                <button>{item.title}</button>
+              </Link>
             ))}{" "}
           <button className="bar-subsec">
             <FaPlus />
@@ -66,9 +70,13 @@ const Sidebar = () => {
           {data
             .filter((item) => item.type === "club")
             .map((item, index) => (
-              <button key={item.id} className="bar-subsec">
-                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
-              </button>
+              <Link
+                key={item.id}
+                className="bar-subsec"
+                to={`${item.type}/${item.id}`}
+              >
+                <button>{item.title}</button>
+              </Link>
             ))}{" "}
           <button className="bar-subsec">
             <FaPlus />
@@ -83,10 +91,14 @@ const Sidebar = () => {
           {data
             .filter((item) => item.type === "dm")
             .map((item, index) => (
-              <button key={item.id} className="bar-subsec">
-                <Link to={`${item.type}/${item.id}`}>{item.title}</Link>
-              </button>
-            ))}{" "}
+              <Link
+                key={item.id}
+                className="bar-subsec"
+                to={`${item.type}/${item.id}`}
+              >
+                <button>{item.title}</button>
+              </Link>
+            ))}
           <button className="bar-subsec">
             <FaPlus />
           </button>

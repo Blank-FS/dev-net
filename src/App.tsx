@@ -6,7 +6,7 @@ import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import Landing from "./components/home/Landing";
 import ClubHome from "./components/home/ClubHome";
-import ProjectHome from "./components/home/ProjectHome";
+import ProjectHome from "./components/home/project/ProjectHome";
 import DMHome from "./components/home/DMHome";
 
 function App() {
