@@ -6,42 +6,28 @@ const ProjectMainPanel = () => {
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
+  const tabs = [
+    { title: "Descriptions", value: "description" },
+    { title: "Versions", value: "version" },
+    { title: "Resources", value: "resource" },
+    { title: "Tasks", value: "task" },
+    { title: "Collab", value: "collab" },
+  ];
   const tabPairs = new Map();
   tabPairs.set("description", <DescriptionTab />);
 
   return (
     <>
-      <div className="flex justify-around mr-4 my-4">
-        <button
-          className="border flex-1"
-          onClick={() => handleTabChange("description")}
-        >
-          Descriptions
-        </button>
-        <button
-          className="border flex-1"
-          onClick={() => handleTabChange("version")}
-        >
-          Versions
-        </button>
-        <button
-          className="border flex-1"
-          onClick={() => handleTabChange("resource")}
-        >
-          Resources
-        </button>
-        <button
-          className="border flex-1"
-          onClick={() => handleTabChange("task")}
-        >
-          Tasks
-        </button>
-        <button
-          className="border flex-1"
-          onClick={() => handleTabChange("collab")}
-        >
-          Collab
-        </button>
+      <div className="flex justify-around my-4">
+        {tabs.map((item, index) => (
+          <button
+            key={index + item.value}
+            className="border flex-1 border-black"
+            onClick={() => handleTabChange(item.value)}
+          >
+            {item.title}
+          </button>
+        ))}
       </div>
       {tabPairs.get(activeTab) ? (
         tabPairs.get(activeTab)
