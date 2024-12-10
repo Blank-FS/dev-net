@@ -40,7 +40,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-2 align-middle w-[20%] box-border h-dvh border p-2 bg-slate-900 text-white">
+    <div className="flex flex-col gap-2 align-middle w-[20%] box-border h-full border p-2 bg-slate-900 text-white">
       <button className="bar-sec" onClick={toggleProjects}>
         Projects
       </button>

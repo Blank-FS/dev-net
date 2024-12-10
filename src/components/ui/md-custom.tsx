@@ -34,7 +34,7 @@ const MarkDown = ({
 
   return (
     <div
-      className={cn("markdown-body", className)}
+      className={cn("markdown-body", className, "overflow-y-auto")}
       dangerouslySetInnerHTML={{ __html: htmlValue }}
     />
   );

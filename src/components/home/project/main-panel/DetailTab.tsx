@@ -19,7 +19,7 @@ const DetailTab = () => {
   }, []);
 
   return (
-    <div className="border w-full flex-1 mr-4 border-black p-4">
+    <div className="flex flex-col border w-full min-h-0 flex-1 mr-4 border-black p-4">
       {editMode ? (
         <form className="flex gap-4 flex-col">
           <div className="flex justify-end gap-4">
@@ -38,12 +38,12 @@ const DetailTab = () => {
         </form>
       ) : (
         <>
-          <div className="flex justify-end w-full">
-            <button className="border border-black p-2" onClick={switchMode}>
+          <div className="flex justify-end w-full mb-2">
+            <button className="border border-black p-1" onClick={switchMode}>
               Edit
             </button>
           </div>
-          <MarkDown content={mdString} />
+          <MarkDown content={mdString} className="flex-1" />
         </>
       )}
     </div>

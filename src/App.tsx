@@ -11,7 +11,7 @@ import DMHome from "./components/home/DMHome";
 
 function App() {
   return (
-    <main className="w-full h-full">
+    <main className="w-[100vw] h-[100vh] flex flex-col">
       <Navbar />
       <Routes>
         <Route path="/home" element={<Home />}>
